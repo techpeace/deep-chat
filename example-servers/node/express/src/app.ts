@@ -5,6 +5,8 @@ import {ErrorUtils} from './utils/errorUtils';
 import {Custom} from './services/custom';
 import {OpenAI} from './services/openAI';
 import {Cohere} from './services/cohere';
+import {Vercel} from './services/vercel';
+
 import dotenv from 'dotenv';
 import multer from 'multer';
 import cors from 'cors';
@@ -92,6 +94,17 @@ app.post('/cohere-generate', async (req: Request, res: Response, next: NextFunct
 
 app.post('/cohere-summarize', async (req: Request, res: Response, next: NextFunction) => {
   Cohere.summarizeText(req.body, res, next);
+});
+
+
+// ------------------ VERCEL AI SDK ------------------
+
+app.post('/vercel-chat', async (req: Request, res: Response, next: NextFunction) => {
+  Vercel.chat(req.body, res, next);
+});
+
+app.post('/vercel-chat-stream', async (req: Request, res: Response, next: NextFunction) => {
+  Vercel.chatStream(req.body, res, next);
 });
 
 // ------------------ START SERVER ------------------

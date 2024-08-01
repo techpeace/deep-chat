@@ -234,6 +234,32 @@ function App() {
           errorMessages={{displayServiceErrorMessages: true}}
         />
       </div>
+
+      <h1 className="server-title">Server for Vercel AI SDK</h1>
+      <a href="https://sdk.vercel.ai/" target="_blank" rel="noreferrer">
+        <img
+          className="server-title-icon"
+          src="https://raw.githubusercontent.com/vercel/ai/main/docs/public/favicon.ico"
+          style={{width: 34, marginBottom: '-6px', marginLeft: '10px'}}
+          alt={'Vercel AI SDK icon'}
+        />
+      </a>
+      <h3>Make sure to set up the Vercel AI SDK in your server</h3>
+      <div className="components">
+        <div className="diagonal-line" style={{background: '#f0f0f0'}}></div>
+        <DeepChat
+          style={{borderRadius: '10px'}}
+          introMessage={{text: 'Send a chat message using Vercel AI SDK with OpenAI.'}}
+          connect={{url: 'http://localhost:8080/vercel-chat'}}
+          errorMessages={{displayServiceErrorMessages: true}}
+        />
+        <DeepChat
+          style={{borderRadius: '10px'}}
+          introMessage={{text: 'Stream a chat message using Vercel AI SDK with OpenAI.'}}
+          connect={{url: 'http://localhost:8080/vercel-chat-stream', stream: true}}
+          errorMessages={{displayServiceErrorMessages: true}}
+        />
+      </div>
     </div>
   );
 }
