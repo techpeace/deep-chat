@@ -239,12 +239,12 @@ function App() {
       <a href="https://sdk.vercel.ai/" target="_blank" rel="noreferrer">
         <img
           className="server-title-icon"
-          src="https://raw.githubusercontent.com/vercel/ai/main/docs/public/favicon.ico"
+          src="https://raw.githubusercontent.com/vercel/ai/main/examples/next-inkeep/app/favicon.ico"
           style={{width: 34, marginBottom: '-6px', marginLeft: '10px'}}
-          alt={'Vercel AI SDK icon'}
+          alt={'Vercel logo'}
         />
       </a>
-      <h3>Make sure to set up the Vercel AI SDK in your server</h3>
+      <h3>Make sure to set the correct environment variables in your server</h3>
       <div className="components">
         <div className="diagonal-line" style={{background: '#f0f0f0'}}></div>
         <DeepChat
