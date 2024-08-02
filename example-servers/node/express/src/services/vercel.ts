@@ -15,14 +15,11 @@ export class Vercel {
   public static async chat(body: Request['body'], res: Response, next: NextFunction) {
     try {
       const messages = Vercel.createChatBody(body);
-      console.log('messages', messages);
 
       const result = await generateText({
         model: openai(body.model || 'gpt-3.5-turbo'),
         messages: messages,
       });
-
-      console.log('result', result);
 
       // Send the full response back to Deep Chat
       res.json({text: result.text});
