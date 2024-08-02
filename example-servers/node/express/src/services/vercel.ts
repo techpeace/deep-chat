@@ -1,6 +1,7 @@
 import {NextFunction, Request, Response} from 'express';
-import {streamText} from 'ai';
+import {generateText, streamText} from 'ai';
 import {openai} from '@ai-sdk/openai';
+import {anthropic} from '@ai-sdk/anthropic';
 
 export class Vercel {
   private static createChatBody(body: Request['body']) {
@@ -14,15 +15,19 @@ export class Vercel {
   public static async chat(body: Request['body'], res: Response, next: NextFunction) {
     try {
       const messages = Vercel.createChatBody(body);
-      const result = await streamText({
+      console.log('messages', messages);
+
+      const result = await generateText({
         model: openai(body.model || 'gpt-3.5-turbo'),
         messages: messages,
       });
 
+      console.log('result', result);
+
       // Send the full response back to Deep Chat
-      const fullText = await result.text;
-      res.json({text: fullText});
+      res.json({text: result.text});
     } catch (error) {
+      console.error('Error in chat method:', error);
       next(error);
     }
   }
@@ -31,7 +36,7 @@ export class Vercel {
     try {
       const messages = Vercel.createChatBody(body);
       const result = await streamText({
-        model: openai(body.model || 'gpt-3.5-turbo'),
+        model: anthropic('claude-3-5-sonnet-20240620'),
         messages: messages,
       });
 

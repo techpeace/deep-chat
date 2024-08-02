@@ -249,13 +249,13 @@ function App() {
         <div className="diagonal-line" style={{background: '#f0f0f0'}}></div>
         <DeepChat
           style={{borderRadius: '10px'}}
-          introMessage={{text: 'Send a chat message using Vercel AI SDK with OpenAI.'}}
+          introMessage={{text: 'Send a chat message to GPT-3.5 Turbo using Vercel AI SDK.'}}
           connect={{url: 'http://localhost:8080/vercel-chat'}}
           errorMessages={{displayServiceErrorMessages: true}}
         />
         <DeepChat
           style={{borderRadius: '10px'}}
-          introMessage={{text: 'Stream a chat message using Vercel AI SDK with OpenAI.'}}
+          introMessage={{text: 'Stream a chat message to Claude 3.5 Sonnet using Vercel AI SDK.'}}
           connect={{url: 'http://localhost:8080/vercel-chat-stream', stream: true}}
           errorMessages={{displayServiceErrorMessages: true}}
         />
