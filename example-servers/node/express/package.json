@@ -9,6 +9,7 @@
   "author": "OvidijusParsiunas",
   "license": "ISC",
   "dependencies": {
+    "@ai-sdk/anthropic": "^0.0.34",
     "@ai-sdk/openai": "^0.0.40",
     "ai": "^3.2.45",
     "dotenv": "^16.4.5",
